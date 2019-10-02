@@ -4106,3 +4106,48 @@ rack (2.0.6) lib/rack/handler/webrick.rb:86:in `service'
   Rendering /usr/local/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
   Rendered /usr/local/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
   Rendered /usr/local/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (19.8ms)
+Started GET "/authors" for 67.49.55.146 at 2019-10-02 18:16:21 +0000
+Cannot render console from 67.49.55.146! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AuthorsController#index as HTML
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  Rendered authors/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 21ms (Views: 16.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/authors/4" for 67.49.55.146 at 2019-10-02 18:16:32 +0000
+Cannot render console from 67.49.55.146! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = ?[0m  [["author_id", 4]]
+  Rendered authors/show.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 28ms (Views: 25.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/authors/4/posts/new" for 67.49.55.146 at 2019-10-02 18:16:34 +0000
+Cannot render console from 67.49.55.146! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#new as HTML
+  Parameters: {"author_id"=>"4"}
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (1.9ms)
+  Rendered posts/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 67.49.55.146 at 2019-10-02 18:18:48 +0000
+Cannot render console from 67.49.55.146! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mvGujNT/a8ySAmSrwjOfLKuUygAx8mYn7IdTN43kX2F1aNYQxTOOu3FEcwlLyyw/JMz6+4A0Khf/x+xEpMRE3w==", "post"=>{"author_id"=>"4", "title"=>"How's it going?", "description"=>"Not bad."}, "commit"=>"Create Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at", "author_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "How's It Going?"], ["description", "Not bad."], ["created_at", "2019-10-02 18:18:48.685870"], ["updated_at", "2019-10-02 18:18:48.685870"], ["author_id", 4]]
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 3.8ms)
+
+
+  
+NoMethodError (undefined method `post_path' for #<PostsController:0x00007f65620919a0>
+Did you mean?  posts_path):
+  
+app/controllers/posts_controller.rb:26:in `create'
