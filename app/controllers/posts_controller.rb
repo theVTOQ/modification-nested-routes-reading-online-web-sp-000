@@ -33,6 +33,8 @@ class PostsController < ApplicationController
   end
 
   def edit
+    if params[:author_id]
+      author = Author.find_by(id: params[:author_id])
     @post = Post.find(params[:id])
   end
 
