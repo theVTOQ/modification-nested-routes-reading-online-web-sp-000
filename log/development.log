@@ -4159,3 +4159,8 @@ app/controllers/posts_controller.rb:26:in `create'
   Rendering /usr/local/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
   Rendered /usr/local/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
   Rendered /usr/local/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.5ms)
+Started POST "/posts" for 67.49.55.146 at 2019-10-02 18:19:51 +0000
+Cannot render console from 67.49.55.146! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mvGujNT/a8ySAmSrwjOfLKuUygAx8mYn7IdTN43kX2F1aNYQxTOOu3FEcwlLyyw/JMz6+4A0Khf/x+xEpMRE3w==", "post"=>{"author_id"=>"4", "title"=>"How's it going?", "description"=>"Not bad."}, "commit"=>"Create Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
